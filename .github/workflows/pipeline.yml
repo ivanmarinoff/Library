@@ -25,8 +25,14 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm run build --if-present
+    - run: 
+      command: npm run build --if-present
+      name: Build server
     - run: npx playwright install
-    - run: node server.js -d
-    - run: sleep 10
+    - run: 
+      command: node server.js -d
+      name: Start server
+      background: true
+
+    - run: npx playwright install
     - run: npx playwright test
