@@ -31,6 +31,6 @@ jobs:
       
     - name: Run test  
       run: |
-        npm run start
+        node server.js -d
         npx playwright test
       
