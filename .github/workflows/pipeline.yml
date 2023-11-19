@@ -29,8 +29,6 @@ jobs:
       
     - run: npx playwright install
     - name: Run server
-      run: |
-        command: npm run start
-        background: true      
+      run: npm run start     
     - run: npx playwright install
     - run: npx playwright test
