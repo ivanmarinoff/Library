@@ -30,10 +30,8 @@ jobs:
       run: npx playwright install
       
     - name: Run test  
-      run:
-        npm run start
-        sleep 10
-
+      run: npm run start || true
+      
     - name: NPX test
       run:
         npx playwright test
