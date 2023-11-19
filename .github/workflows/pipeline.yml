@@ -28,13 +28,9 @@ jobs:
     - run: npm run build --if-present
     - name: NPX install
       run: npx playwright install
-    - name: Run server
-      run: |
-        npm run start
-        background: true
-        sleep: 10
+      
     - name: Run test  
       run: |
-        needs: NPX install
+        npm run start
         npx playwright test
       
