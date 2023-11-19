@@ -30,7 +30,7 @@ jobs:
     - run: npx playwright install
     - name: Run server
       run: |
-        command: node server.js -d
+        command: npm run start
         background: true      
     - run: npx playwright install
     - run: npx playwright test
