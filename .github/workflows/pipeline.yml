@@ -30,5 +30,5 @@ jobs:
       run: npx playwright install
       
     - name: Run test  
-      run: node server.js -d | npx playwright test
+      run: npm run start | npx playwright test
       
