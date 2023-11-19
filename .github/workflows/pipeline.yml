@@ -28,4 +28,5 @@ jobs:
     - run: npm run build --if-present
     - run: npx playwright install
     - run: node server.js -d
+    - run: sleep 10
     - run: npx playwright test
