@@ -78,7 +78,7 @@
             // Redirect fix for admin panel relative paths
             if (req.url.slice(-6) == '/admin') {
                 res.writeHead(302, {
-                    'Location': `http://${req.headers.host}/admin/`
+                    'Location': `http://${req.getHeaders().host}/admin/`
                 });
                 return res.end();
             }
@@ -169,7 +169,7 @@
     }
 
     async function parseRequest(req) {
-        const url = new URL(req.url, `http://${req.headers.host}`);
+        const url = new URL(req.url, `http://${req.getHeaders().host}`);
         const tokens = url.pathname.split('/').filter(x => x.length > 0);
         const serviceName = tokens.shift();
         const queryString = url.search.split('?')[1] || '';
@@ -1082,7 +1082,7 @@
                 logout
             };
 
-            const userToken = request.headers['x-authorization'];
+            const userToken = request.getHeaders()['x-authorization'];
             if (userToken !== undefined) {
                 let user;
                 const session = findSessionByToken(userToken);
@@ -1231,7 +1231,7 @@
                 get,
                 isOwner
             };
-            const isAdmin = request.headers.hasOwnProperty('x-admin');
+            const isAdmin = request.getHeaders().hasOwnProperty('x-admin');
 
             context.canAccess = canAccess;
 
@@ -1399,10 +1399,10 @@
 
     const server = http__default['default'].createServer(requestHandler(plugins, services));
 
-    const port = 3030;
+    const port = 3000;
     server.listen(port);
     console.log(`Server started on port ${port}. You can make requests to http://localhost:${port}/`);
-    console.log(`Admin panel located at http://localhost:${port}/admin`);
+    // console.log(`Admin panel located at http://localhost:${port}/admin`);
 
     var softuniPracticeServer = {
 
