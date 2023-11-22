@@ -6,8 +6,7 @@
     "scripts": {
         "test": "mocha tests",
         "build": "http-server -p 3000 -a 0.0.0.0",
-        "start": "concurrently \"npm run start-frontend\" \"npm run start-backend\"",
-        "start-frontend": "http-server -a localhost -p 3000 -P http://localhost:3000? -c-1",
+        "start": "npm run start-backend",        
         "start-backend": "node server/server.js",
         "start-for-tests": "http-server -a localhost -p 3000 -P http://localhost:3000? -c-1"
     },
