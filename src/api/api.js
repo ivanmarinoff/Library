@@ -1,5 +1,5 @@
 export const settings = {
-    host: 'https://library-frontend-fs7r.onrender.com',
+    host: '',
 };
 
 async function request(url, options) {
